@@ -1,0 +1,14 @@
+{
+  "name": "@changesets/app1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/app1.cjs.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@changesets/cli": "^2.26.1"
+  }
+}
