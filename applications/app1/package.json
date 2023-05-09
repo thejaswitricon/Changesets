@@ -3,6 +3,8 @@
   "version": "1.0.1",
   "description": "",
   "main": "dist/app1.cjs.js",
+  "module": "dist/app1.esm.js",
+
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
