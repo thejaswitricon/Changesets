@@ -21,12 +21,10 @@ jobs:
         run: npx changeset version
 
       - name: Create changeset pull request
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT_GITHUB2 }}
         uses: changesets/action@v1
         with:
           commitMessage: "chore: update changelog"
           title: "Update changelog"
           message: "Changeset updates"
-        # env:
-        #   GITHUB_TOKEN: ${{ secrets.PAT_GITHUB2 }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_GITHUB2 }}
