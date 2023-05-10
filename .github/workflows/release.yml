@@ -24,15 +24,15 @@ jobs:
           node-version: 16.x
 
       - name: Install Dependencies
-        run: yarn
+        run: npm ci
 
       - name: Create Release Pull Request or Publish to npm
         # https://github.com/changesets/action
         uses: changesets/action@v1
         with:
           # this expects you to have a script called release which does a build for your packages and calls changeset publish
-          publish: yarn release
-          version: yarn version-packages
+          publish: npm release
+          version: npm version-packages
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_GITHUB2 }}
 
