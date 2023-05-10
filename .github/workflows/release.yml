@@ -18,11 +18,13 @@ jobs:
         run: npm ci
 
       - name: Prepare changesets
-        run: 
-          npx changeset
-          npx changeset ststus --verbose
-          npx changeset version
+        run: npx changeset
+          
+      - name: changeset verbose
+        run: npx changeset status --verbose
 
+      - name: changeset Version
+        run: npx changeset version
 
       - name: Create changeset pull request
         uses: changesets/action@v1
