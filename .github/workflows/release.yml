@@ -18,7 +18,8 @@ jobs:
         run: npm ci
 
       - name: Prepare changesets
-        run: npx changeset
+        run: npx changeset --since main @changesets/app1
+
           
       - name: changeset verbose
         run: npx changeset status --verbose
