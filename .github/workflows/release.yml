@@ -18,9 +18,10 @@ jobs:
         run: npm ci
 
       - name: Prepare changesets
-        run: npx changeset --since main @changesets/app1
+        run: |
+          PACKAGE_NAME=$(echo ${{ github.event.head_commit.message }} | grep -oE "\b(app1|app2)\b")
+          npx changeset --since main --updatePackageJson $PACKAGE_NAME
 
-          
       - name: changeset verbose
         run: npx changeset status --verbose
 
