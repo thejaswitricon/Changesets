@@ -7,7 +7,9 @@
     "applications/*"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "yarn build && npx changeset publish",
+    "version-packages": "npx changeset version"
   },
   "engines": {
     "node": ">=14.0.0",
