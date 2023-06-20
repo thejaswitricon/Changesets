@@ -1,6 +1,6 @@
 {
-  "name": "@changesets/app1",
-  "version": "2.0.0",
+  "name": "@packages/app1",
+  "version": "2.0.1",
   "description": "",
   "main": "dist/app1.cjs.js",
   "module": "dist/app1.esm.js",

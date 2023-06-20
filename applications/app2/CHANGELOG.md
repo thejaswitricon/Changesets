@@ -1,5 +1,11 @@
 # @changesets/app2
 
+## 1.1.1
+
+### Patch Changes
+
+- Test patch bump to the packages
+
 ## 1.1.0
 
 ### Minor Changes
