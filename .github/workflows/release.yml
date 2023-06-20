@@ -56,7 +56,7 @@ jobs:
         run: npm install
 
       - name: Prepare changesets
-        run: npx changeset
+        run: npx changeset --since main
           
       - name: changeset verbose
         run: npx changeset status --verbose
