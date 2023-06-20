@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     branches:
-      - main
+      - min
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 

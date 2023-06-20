@@ -1,5 +1,11 @@
 # @changesets/app1
 
+## 2.0.2
+
+### Patch Changes
+
+- test increment in the version
+
 ## 2.0.1
 
 ### Patch Changes
