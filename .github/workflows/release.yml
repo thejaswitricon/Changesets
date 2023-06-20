@@ -1,74 +1,74 @@
-name: Release
-
-on:
-  push:
-    branches:
-      - min
-
-concurrency: ${{ github.workflow }}-${{ github.ref }}
-
-jobs:
-  release:
-    name: Release
-    if: github.repository == 'thejaswitricon/Changesets'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        # https://github.com/actions/checkout
-        uses: actions/checkout@v2
-
-      - name: Setup Node.js 16.x
-        # https://github.com/actions/setup-node
-        uses: actions/setup-node@v2
-        with:
-          node-version: 16.x
-
-      - name: Install Dependencies
-        run: npm ci
-
-      - name: Create Release Pull Request or Publish to npm
-        # https://github.com/changesets/action
-        uses: changesets/action@v1
-        with:
-          # this expects you to have a script called release which does a build for your packages and calls changeset publish
-          publish: npm release
-          version: npm version-packages
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT_GITHUB2 }}
-
-# name: Version
+# name: Release
 
 # on:
 #   push:
 #     branches:
 #       - main
-# permissions: write-all
+
+# concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 # jobs:
-#   version:
+#   release:
+#     name: Release
+#     if: github.repository == 'thejaswitricon/Changesets'
 #     runs-on: ubuntu-latest
-
 #     steps:
-#       - name: Checkout
+#       - name: Checkout Repo
+#         # https://github.com/actions/checkout
 #         uses: actions/checkout@v2
 
-#       - name: Install dependencies
+#       - name: Setup Node.js 16.x
+#         # https://github.com/actions/setup-node
+#         uses: actions/setup-node@v2
+#         with:
+#           node-version: 16.x
+
+#       - name: Install Dependencies
 #         run: npm ci
 
-#       - name: Prepare changesets
-#         run: npx changeset
-          
-#       - name: changeset verbose
-#         run: npx changeset status --verbose
-
-#       - name: changeset Version
-#         run: npx changeset version
-
-#       - name: Create changeset pull request
+#       - name: Create Release Pull Request or Publish to npm
+#         # https://github.com/changesets/action
 #         uses: changesets/action@v1
 #         with:
-#           commitMessage: "chore: update changelog"
-#           title: "Update changelog"
-#           message: "Changeset updates"
+#           # this expects you to have a script called release which does a build for your packages and calls changeset publish
+#           publish: npm release
+#           version: npm version-packages
 #         env:
 #           GITHUB_TOKEN: ${{ secrets.PAT_GITHUB2 }}
+
+name: Version
+
+on:
+  push:
+    branches:
+      - main
+permissions: write-all
+
+jobs:
+  version:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare changesets
+        run: npx changeset
+          
+      - name: changeset verbose
+        run: npx changeset status --verbose
+
+      - name: changeset Version
+        run: npx changeset version
+
+      - name: Create changeset pull request
+        uses: changesets/action@v1
+        with:
+          commitMessage: "chore: update changelog"
+          title: "Update changelog"
+          message: "Changeset updates"
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_GITHUB2 }}
